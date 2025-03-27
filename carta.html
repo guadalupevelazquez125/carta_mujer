@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para mi Novia</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif; /* Elegante */
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .contenedor {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .titulo {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px; /* Tamaño aumentado */
+            color: #4b0082; /* Color elegante */
+            font-weight: bold;
+            transition: opacity 0.5s ease;
+        }
+        .sobre {
+            width: 18cm; /* Tamaño del sobre */
+            height: 15cm; /* Tamaño del sobre */
+            background: #deb887;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 1s ease-in-out;
+        }
+        .tapa {
+            position: absolute;
+            width: 100%;
+            height: 10cm; /* Altura de la tapa */
+            background: #a0522d;
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            transition: transform 0.5s ease-in-out;
+        }
+        .corazon {
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .corazon::before, .corazon::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .corazon::before {
+            top: -25px;
+            left: 0;
+        }
+        .corazon::after {
+            left: 25px;
+            top: 0;
+        }
+        .carta {
+            position: absolute;
+            width: 90%; /* Cubrir el 90% del sobre */
+            height: 80%; /* Cubrir el 80% del sobre */
+            background: white;
+            top: 15%; /* Posición inicial dentro del sobre */
+            left: 5%; /* Alineado a la izquierda */
+            padding: 20px;
+            border-radius: 10px; /* Ajustado para que coincida con el sobre */
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: flex-start; /* Alinear al inicio */
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0; /* Inicialmente invisible */
+            transform: translateY(100%); /* Fuera de vista */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Animación de entrada */
+            font-size: 20px; /* Tamaño de fuente elegante */
+            color: #333; /* Color del texto */
+            line-height: 1.6; /* Espaciado entre líneas */
+        }
+        .contenedor.abierto .tapa {
+            transform: rotateX(180deg);
+        }
+        .contenedor.abierto .carta {
+            transform: translateY(0); /* Deslizar hacia arriba */
+            opacity: 1; /* Hacer visible */
+        }
+        .contenedor.abierto .titulo {
+            opacity: 0;
+        }
+        .foto {
+            margin-top: 10px;
+            width: 150px; /* Ajustar al tamaño deseado */
+            height: 150px; /* Ajustar al tamaño deseado */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            overflow: hidden; /* Para asegurar que la imagen no se salga */
+            margin: 0 auto; /* Centrar el cuadro de la imagen */
+        }
+        .foto img {
+            width: 100%; /* Ajustar al 100% del ancho del contenedor */
+            height: 100%; /* Ajustar al 100% del alto del contenedor */
+            object-fit: cover; /* Mantiene la proporción y cubre el cuadro */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor" onclick="abrirSobre()">
+        <div class="titulo">Carta para mi Novia</div>
+        <div class="sobre">
+            <div class="tapa"></div>
+            <div class="corazon"></div>
+            <div class="carta">
+                <p>Solo quería tomar un momento para decirte cuánto significas para mí.</p>
+                <p>Te amo más de lo que las palabras pueden expresar.</p>
+                <div class="foto">
+                    <img src="imagen/Imagen de WhatsApp 2025-03-25 a las 16.41.41_557f4e94.jpg" alt="Foto especial">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function abrirSobre() {
+            document.querySelector('.contenedor').classList.toggle('abierto');
+        }
+    </script>
+</body>
+</html>
